@@ -17,10 +17,18 @@ func (f FootballPlayer) KickBall() {
 
 func main() {
 	team := make([]FootballPlayer, 11)
+
+	team[10] = FootballPlayer{
+		stamina: 10,
+		power:   7,
+	}
 	for i := 0; i < len(team); i++ {
 		team[i] = FootballPlayer{
 			stamina: rand.Intn(10),
 			power:   rand.Intn(10),
 		}
+	}
+	for i := 0; i < len(team); i++ {
+		team[i].KickBall()
 	}
 }
