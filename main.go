@@ -5,6 +5,10 @@ import (
 	"math/rand"
 )
 
+type Player interface {
+	KickBall()
+}
+
 type FootballPlayer struct {
 	stamina int
 	power   int
