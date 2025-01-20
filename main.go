@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
+	"sync"
+	// "math/rand"
+	// "sync"
 )
 
 type Player interface {
@@ -20,15 +22,11 @@ func (f FootballPlayer) KickBall() {
 }
 
 func main() {
-	team := make([]FootballPlayer, 11)
+	var wg sync.WaitGroup
 
-	for i := 0; i < len(team); i++ {
-		team[i] = FootballPlayer{
-			stamina: rand.Intn(10),
-			power:   rand.Intn(10),
-		}
-	}
-	for i := 0; i < len(team); i++ {
-		team[i].KickBall()
-	}
+	wg.Add(1)
+
+	wg.Done()
+
+	wg.Wait()
 }
